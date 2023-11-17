@@ -30,7 +30,7 @@ namespace Catch {
 
         class Pattern {
         public:
-            explicit Pattern( std::string const& name );
+            explicit Pattern( std::string name );
             virtual ~Pattern();
             virtual bool matches( TestCaseInfo const& testCase ) const = 0;
             std::string const& name() const;
@@ -58,7 +58,7 @@ namespace Catch {
 
         class TagPattern : public Pattern {
         public:
-            explicit TagPattern( std::string const& tag, std::string const& filterString );
+            explicit TagPattern( std::string tag, std::string const& filterString );
             bool matches( TestCaseInfo const& testCase ) const override;
         private:
             void serializeTo( std::ostream& out ) const override;
