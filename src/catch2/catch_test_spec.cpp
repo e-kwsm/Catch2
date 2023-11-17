@@ -14,13 +14,14 @@
 
 #include <algorithm>
 #include <string>
+#include <utility>
 #include <vector>
 #include <ostream>
 
 namespace Catch {
 
-    TestSpec::Pattern::Pattern( std::string const& name )
-    : m_name( name )
+    TestSpec::Pattern::Pattern( std::string name )
+    : m_name( std::move(name) )
     {}
 
     TestSpec::Pattern::~Pattern() = default;
@@ -44,9 +45,9 @@ namespace Catch {
     }
 
 
-    TestSpec::TagPattern::TagPattern( std::string const& tag, std::string const& filterString )
+    TestSpec::TagPattern::TagPattern( std::string tag, std::string const& filterString )
     : Pattern( filterString )
-    , m_tag( tag )
+    , m_tag( std::move(tag) )
     {}
 
     bool TestSpec::TagPattern::matches( TestCaseInfo const& testCase ) const {
