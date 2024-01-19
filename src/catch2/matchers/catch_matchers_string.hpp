@@ -33,7 +33,7 @@ namespace Matchers {
 
     public:
         StringMatcherBase( StringRef operation,
-                           CasedString const& comparator );
+                           CasedString comparator );
         std::string describe() const override;
     };
 
