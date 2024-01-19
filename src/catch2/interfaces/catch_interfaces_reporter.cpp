@@ -12,6 +12,7 @@
 #include <catch2/internal/catch_istream.hpp>
 
 #include <cassert>
+#include <utility>
 
 namespace Catch {
 
@@ -39,10 +40,10 @@ namespace Catch {
 
     ReporterConfig::~ReporterConfig() = default;
 
-    AssertionStats::AssertionStats( AssertionResult const& _assertionResult,
+    AssertionStats::AssertionStats( AssertionResult _assertionResult,
                                     std::vector<MessageInfo> const& _infoMessages,
                                     Totals const& _totals )
-    :   assertionResult( _assertionResult ),
+    :   assertionResult( std::move(_assertionResult) ),
         infoMessages( _infoMessages ),
         totals( _totals )
     {

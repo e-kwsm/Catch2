@@ -11,6 +11,7 @@
 #include <catch2/internal/catch_move_and_forward.hpp>
 
 #include <regex>
+#include <utility>
 
 namespace Catch {
 namespace Matchers {
@@ -31,8 +32,8 @@ namespace Matchers {
     }
 
 
-    StringMatcherBase::StringMatcherBase( StringRef operation, CasedString const& comparator )
-    : m_comparator( comparator ),
+    StringMatcherBase::StringMatcherBase( StringRef operation, CasedString comparator )
+    : m_comparator( std::move(comparator) ),
       m_operation( operation ) {
     }
 

@@ -56,7 +56,7 @@ namespace Catch {
     };
 
     struct AssertionStats {
-        AssertionStats( AssertionResult const& _assertionResult,
+        AssertionStats( AssertionResult _assertionResult,
                         std::vector<MessageInfo> const& _infoMessages,
                         Totals const& _totals );
 
