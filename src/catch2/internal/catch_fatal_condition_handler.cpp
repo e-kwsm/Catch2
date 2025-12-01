@@ -145,7 +145,7 @@ namespace Catch {
 
 #if defined( CATCH_CONFIG_POSIX_SIGNALS )
 
-#include <signal.h>
+#include <csignal>
 
 namespace Catch {
 
